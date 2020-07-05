@@ -225,4 +225,28 @@ for (auto s:A)
 	}
 
 }
-```
+`
+####Another Solution``
+cpp
+
+int Solution::solve(vector<string> &arr) {
+    int n = arr.size(), i,res=0; float sum=0.0;
+    vector<float> v;
+    for (i = 0; i < n; i++) {
+        v.push_back(stof(arr[i]));
+    }
+    sort(v.begin(),v.end());
+    for( i=0;i<n-2;i++)
+    {
+        sum=sum+v[i]+v[i+1]+v[i+2];
+        if (sum < 2 && sum > 1)
+        {
+        res=1;
+        break;
+        }
+        else
+        res=0;
+        sum=0;
+    }
+    return res;
+    }
